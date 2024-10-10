@@ -1,13 +1,13 @@
-import Banner from "@/components/Banner";
+import GenericBanner from "@/components/GenericBanner";
 import Header from "../components/Header";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Banner>
+      <GenericBanner>
         dasdasd
-      </Banner>
+      </GenericBanner>
     </>
   );
 }
