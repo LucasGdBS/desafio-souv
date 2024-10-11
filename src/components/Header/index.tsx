@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import logo from "./logo.svg";
 export default function Header() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeButton, setActiveButton] = useState("Home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,12 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
+  const handleButtonClick = (button: string) => {
+    setActiveButton(button);
+  };
+
+  const markedButton = "border-l-custom-green font-black border-l-4 pl-1";
+
   return (
     <header
       className={`pt-[64px] px-36 fixed top-0 w-full overflow-x-hidden z-50 transition-transform duration-300 bg-custom-purple ${
@@ -37,16 +44,34 @@ export default function Header() {
       }`}
     >
       <div className="flex justify-between items-center">
-        <div className="flex text-4xl font-black select-none">
+        <div className="flex text-4xl font-bold select-none">
           <Image src={logo} alt="Logo" />
         </div>
         <div className="flex justify-between space-x-8 text-white font-bold">
-          <button className="border-l-custom-green border-l-4 pl-1">
+          <button
+            className={`${activeButton === "Home" ? markedButton : ""}`}
+            onClick={() => handleButtonClick("Home")}
+          >
             Home
           </button>
-          <button>Sobre</button>
-          <button>Categorias</button>
-          <button>Contato</button>
+          <button
+            className={`${activeButton === "Sobre" ? markedButton : ""}`}
+            onClick={() => handleButtonClick("Sobre")}
+          >
+            Sobre
+          </button>
+          <button
+            className={`${activeButton === "Categorias" ? markedButton : ""}`}
+            onClick={() => handleButtonClick("Categorias")}
+          >
+            Categorias
+          </button>
+          <button
+            className={`${activeButton === "Contatos" ? markedButton : ""}`}
+            onClick={() => handleButtonClick("Contatos")}
+          >
+            Contatos
+          </button>
         </div>
         <div>
           <SearchBox />
