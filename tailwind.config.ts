@@ -53,6 +53,9 @@ const config: Config = {
 			'custom-green': '#4fff4b',
 			'custom-purple': '#290742',
   		},
+		fontFamily: {
+			roboto: ['var(--font-roboto)'],
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
