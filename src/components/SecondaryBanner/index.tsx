@@ -30,9 +30,10 @@ const postVariantsPost2 = {
 
 export default function SecondaryBanner() {
   return (
-    <article className="flex flex-col px-36 py-14 space-y-16">
-      <article className="flex space-x-32 justify-between">
-        <article>
+    <article className="flex flex-col px-4 md:px-8 lg:px-36 py-14 space-y-16">
+      <article className="flex flex-col items-center md:flex-row md:space-x-0 lg:space-x-32 justify-between">
+        {/* Primeira coluna */}
+        <article className="mb-8 md:mb-0">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -48,6 +49,8 @@ export default function SecondaryBanner() {
             />
           </motion.div>
         </article>
+
+        {/* Segunda coluna */}
         <article>
           <motion.div
             initial="hidden"
@@ -73,3 +76,4 @@ export default function SecondaryBanner() {
     </article>
   );
 }
+

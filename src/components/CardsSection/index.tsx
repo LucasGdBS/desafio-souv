@@ -43,28 +43,29 @@ export default function CardsSection() {
     },
   ];
 
-  return (
-    <div>
-      <article className="bg-white flex flex-col md:flex-row justify-between md:space-x-8 lg:space-x-8">
-        {posts.map((post, i) => (
-          <motion.div
+return (
+  <div className="flex items-center justify-center">
+    <article className="bg-white flex flex-col md:flex-row justify-center md:justify-between md:space-x-8 lg:space-x-8">
+      {posts.map((post, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={postVariants}
+        >
+          <Card
             key={i}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={postVariants}
-          >
-            <Card
-              key={i}
-              date={post.date}
-              title={post.title}
-              image={post.image}
-              description={post.description}
-            />
-          </motion.div>
-        ))}
-      </article>
-    </div>
-  );
+            date={post.date}
+            title={post.title}
+            image={post.image}
+            description={post.description}
+          />
+        </motion.div>
+      ))}
+    </article>
+  </div>
+);
+
 }
