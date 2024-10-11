@@ -1,7 +1,22 @@
+"use client"
+import { motion } from "framer-motion";
 import Card from "../Card";
 import post2 from "../../assets/post-2.jpeg";
 import post3 from "../../assets/post-3.jpeg";
 import post4 from "../../assets/post-4.jpeg";
+
+const postVariants = {
+  hidden: { opacity: 0, y: 50 }, // Começa invisível e mais abaixo
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1, // Pequeno delay para cada item aparecer sequencialmente
+      duration: 0.5, // Duração da animação
+      ease: "easeInOut",
+    },
+  }),
+};
 
 export default function CardsSection() {
   const posts = [
@@ -32,13 +47,22 @@ export default function CardsSection() {
     <div>
       <article className="bg-white flex flex-col md:flex-row justify-between md:space-x-8 lg:space-x-8">
         {posts.map((post, i) => (
-          <Card
+          <motion.div
             key={i}
-            date={post.date}
-            title={post.title}
-            image={post.image}
-            description={post.description}
-          />
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={postVariants}
+          >
+            <Card
+              key={i}
+              date={post.date}
+              title={post.title}
+              image={post.image}
+              description={post.description}
+            />
+          </motion.div>
         ))}
       </article>
     </div>
