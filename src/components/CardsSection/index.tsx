@@ -1,5 +1,4 @@
 import Card from "../Card";
-import post1 from "../../assets/post-1.jpeg";
 import post2 from "../../assets/post-2.jpeg";
 import post3 from "../../assets/post-3.jpeg";
 import post4 from "../../assets/post-4.jpeg";
@@ -31,7 +30,7 @@ export default function CardsSection() {
 
   return (
     <div>
-      <section className="bg-white flex flex-col md:flex-row justify-between px-4 md:px-8 lg:px-32 space-x-0 md:space-x-8">
+      <article className="bg-white flex flex-col md:flex-row justify-between md:space-x-8 lg:space-x-8">
         {posts.map((post, i) => (
           <Card
             key={i}
@@ -41,7 +40,7 @@ export default function CardsSection() {
             description={post.description}
           />
         ))}
-      </section>
+      </article>
     </div>
   );
 }

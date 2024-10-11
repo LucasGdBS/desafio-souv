@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 
 export default function Header() {
   return (
-    <header className="pt-[64px] px-20 fixed top-0 w-full overflow-x-hidden z-50">
+    <header className="pt-[64px] px-36 fixed top-0 w-full overflow-x-hidden z-50">
       <div className="flex justify-between items-center">
         <div className="flex text-4xl font-black select-none">
           <Image src={logo} alt="Logo" />

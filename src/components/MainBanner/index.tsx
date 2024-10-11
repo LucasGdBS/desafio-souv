@@ -4,8 +4,8 @@ import { FaArrowRight } from "react-icons/fa";
 
 export default function MainBanner() {
   return (
-    <div className="bg-custom-purple w-full h-1/2 border-b-green-400 border-b-4 pt-44 pb-16">
-      <article className="flex flex-col md:flex-row justify-around">
+    <div className="bg-custom-purple w-full h-1/2 border-b-green-400 border-b-4 pt-44 pb-16 px-36">
+      <article className="flex flex-col md:flex-row justify-between">
         <div className="max-w-xl space-y-7">
           <h1 className="text-2xl md:text-4xl text-purple-500 font-bold"> {/* Tamanhos de fonte responsivos */}
             Veja o guia definitivo para conquistar seus objetivos como DEV em
