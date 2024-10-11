@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa"; // Ícones para o menu hamburguer
@@ -35,6 +36,13 @@ export default function Header() {
     setMenuOpen(false); // Fechar o menu ao clicar em um botão
   };
 
+  const handleClickScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const markedButton = "border-l-custom-green font-black border-l-4 pl-1";
 
   return (
@@ -45,12 +53,22 @@ export default function Header() {
     >
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl md:text-4xl font-bold select-none">
-          <Image src={logo} alt="Logo" className="w-24 md:w-auto" />
-        </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+          }}
+        >
+          <div className="text-2xl md:text-4xl font-bold select-none">
+            <Image src={logo} alt="Logo" className="w-24 md:w-auto cursor-pointer" onClick={handleClickScroll} />
+          </div>
+        </motion.div>
 
         {/* Menu hamburguer para telas pequenas */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center ml-auto">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-white text-2xl"
@@ -60,40 +78,60 @@ export default function Header() {
         </div>
 
         {/* Navegação - Oculta em telas pequenas */}
-        <nav
-          className={`${
-            menuOpen ? "block" : "hidden"
-          } md:flex justify-between space-x-2 md:space-y-0 md:space-x-8 text-white font-bold md:items-center`}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0, y: -50 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
         >
-          <button
-            className={`${activeButton === "Home" ? markedButton : ""}`}
-            onClick={() => handleButtonClick("Home")}
+          <nav
+            className={`${
+              menuOpen ? "block" : "hidden"
+            } md:flex justify-between space-x-2 md:space-y-0 md:space-x-8 text-white font-bold md:items-center`}
           >
-            Home
-          </button>
-          <button
-            className={`${activeButton === "Sobre" ? markedButton : ""}`}
-            onClick={() => handleButtonClick("Sobre")}
-          >
-            Sobre
-          </button>
-          <button
-            className={`${activeButton === "Categorias" ? markedButton : ""}`}
-            onClick={() => handleButtonClick("Categorias")}
-          >
-            Categorias
-          </button>
-          <button
-            className={`${activeButton === "Contatos" ? markedButton : ""}`}
-            onClick={() => handleButtonClick("Contatos")}
-          >
-            Contatos
-          </button>
-        </nav>
+            <button
+              className={`${activeButton === "Home" ? markedButton : ""}`}
+              onClick={() => handleButtonClick("Home")}
+            >
+              Home
+            </button>
+            <button
+              className={`${activeButton === "Sobre" ? markedButton : ""}`}
+              onClick={() => handleButtonClick("Sobre")}
+            >
+              Sobre
+            </button>
+            <button
+              className={`${activeButton === "Categorias" ? markedButton : ""}`}
+              onClick={() => handleButtonClick("Categorias")}
+            >
+              Categorias
+            </button>
+            <button
+              className={`${activeButton === "Contatos" ? markedButton : ""}`}
+              onClick={() => handleButtonClick("Contatos")}
+            >
+              Contatos
+            </button>
+          </nav>
+        </motion.div>
 
         {/* SearchBox - Oculta em telas pequenas */}
         <div className="hidden md:block">
-          <SearchBox />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+            }}
+          >
+            <SearchBox />
+          </motion.div>
         </div>
       </div>
     </header>
