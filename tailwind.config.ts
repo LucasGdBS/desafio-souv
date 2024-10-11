@@ -52,6 +52,7 @@ const config: Config = {
   			},
 			'custom-green': '#4fff4b',
 			'custom-purple': '#290742',
+			'purple-letter': '#9E6DC2',
   		},
 		fontFamily: {
 			roboto: ['var(--font-roboto)'],

@@ -7,7 +7,7 @@ export default function MainBanner() {
     <div className="bg-custom-purple w-full h-1/2 border-b-green-400 border-b-4 pt-44 pb-16 px-36">
       <article className="flex flex-col md:flex-row justify-between">
         <div className="max-w-xl space-y-7">
-          <h1 className="text-2xl md:text-4xl text-purple-500 font-bold">
+          <h1 className="text-2xl md:text-4xl text-purple-letter font-bold">
             Veja o guia definitivo para conquistar seus objetivos como DEV em
             2022
           </h1>
@@ -17,7 +17,7 @@ export default function MainBanner() {
             sed tristique placerat hac.
           </p>
           <div>
-            <button type="button" className="text-purple-500 font-bold">
+            <button type="button" className="text-purple-letter font-bold">
               Veja mais <FaArrowRight className="inline text-custom-green" />
             </button>
           </div>

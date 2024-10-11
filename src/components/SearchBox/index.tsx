@@ -8,7 +8,7 @@ export default function SearchBox() {
         placeholder="Buscar"
         className="bg-black/25 text-white placeholder-white/75 px-4 py-2 rounded-tl-md rounded-bl-md outline-none"
       />
-      <button className="bg-purple-400 py-4 px-6 rounded-tr-md rounded-br-md">
+      <button className="bg-purple-letter py-4 px-6 rounded-tr-md rounded-br-md">
         <FaMagnifyingGlass className="text-xl" />
       </button>
     </div>
